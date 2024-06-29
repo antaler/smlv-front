@@ -18,11 +18,13 @@ jobs:
       
       - name: Set UP docker
         run: |
-          echo -e "{\"insecure-registies\": [\"${{ secrets.DOCKER_REGISTRY_DOMAIN }}\"]}\"" > .docker
+          echo -e "{\"insecure-registries\": [\"${{ secrets.DOCKER_REGISTRY_DOMAIN }}\"]}\"" > ./.docker
           cat .docker
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+        env:
+          DOCKER_CONFIG: ./.docker
 
 
       - name: Docker Registry Login
