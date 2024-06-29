@@ -1,0 +1,15 @@
+<button [type]="type" [disabled]="!enabled"
+  [class]="' disabled:opacity-15 transition-opacity  py-2 px-4 text-white rounded-md bg-accent ' + class" type="button"
+  (click)="handleClick($event)" *ngIf="!isClicked || !loader else buttonLoader">{{text}}</button>
+
+
+<!-- Loader -->
+<ng-template #buttonLoader>
+  <div class=" w-full h-8 mt-4 flex-row flex justify-center items-center gap-4">
+    <div class="h-3/4 aspect-square rounded-full bg-accent animate-bounce  duration-100"></div>
+    <div class="h-3/4 aspect-square rounded-full bg-accent animate-bounce [animation-delay:100ms] duration-100">
+    </div>
+    <div class="h-3/4 aspect-square rounded-full bg-accent animate-bounce [animation-delay:200ms] duration-100">
+    </div>
+  </div>
+</ng-template>

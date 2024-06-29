@@ -1,0 +1,17 @@
+<main class="w-screen h-screen flex flex-col items-center justify-center bg-accentDark/50 p-2">
+  <div class="flex flex-col items-center justify-center">
+    <h1 class="text-accent text-2xl font-bold">SMLV</h1>
+    <h2 class="text-accent">Create Account</h2>
+  </div>
+  <article class="pt-3 rounded-md border-2 p-3 mt-4 border-accentDark/80 ">
+    <form (submit)="handleSubmit($event)" class=" flex flex-col  ">
+      <app-input type="email" name="email" label="Email" [(value)]="user.email.value" [editable]="false" />
+      <app-input type="text" name="alias" label="Alias" [(value)]="user.alias.value"
+        (valid)="handleIsValid('alias',$event)" [validators]="validators.alias" />
+      <app-input type="password" name="password" label="Password" [(value)]="user.password.value"
+        [validators]="validators.password" (valid)="handleIsValid('password',$event)" />
+      <app-button type="submit" text="Sign in" class="mx-auto mt-2" [loader]="false"
+        (clicked)="handleClickSignIn($event)" [enabled]="user.password.valid && user.alias.valid" />
+    </form>
+  </article>
+</main>

@@ -1,0 +1,29 @@
+/**
+* @license
+*
+* Font Family: Pilcrow Rounded
+* Designed by: Satya Rajpurohit
+* URL: https://www.fontshare.com/fonts/pilcrow-rounded
+* © 2024 Indian Type Foundry
+*
+* Pilcrow Rounded Variable (Variable font)
+
+*
+*/
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 400.0;
+*
+* available axes:
+'wght' (range from 400.0 to 900.0
+*/
+@font-face {
+  font-family: 'PilcrowRounded';
+  src: url('/fonts/PilcrowRounded-Variable.woff2') format('woff2'),
+    url('/fonts/PilcrowRounded-Variable.woff') format('woff'),
+    url('/fonts/PilcrowRounded-Variable.ttf') format('truetype');
+  font-weight: 400 900;
+  font-display: swap;
+  font-style: normal;
+}

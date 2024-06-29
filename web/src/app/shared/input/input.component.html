@@ -1,0 +1,14 @@
+<label [for]="name" class="flex flex-col  mt-2">
+  <span *ngIf="label" class="text-base font">{{label}}</span>
+  <ng-container *ngIf="control">
+    <input [type]="type" [name]="name" [placeholder]="placeholder" (keypress)="keyPress.emit($event)"
+      [class]="'bg-white/70 border border-primaryDark/30 text-xl rounded-md p-1 placeholder:text-base disabled:bg-white/40 disabled:opacity-80  ' + class"
+      [disabled]="!editable" [formControl]="control" />
+  </ng-container>
+  <span class="text-red-600 text-xs pt-1 text-right h-4 font-bold"
+    *ngIf="currentError else spacer">{{currentError}}</span>
+</label>
+
+<ng-template #spacer>
+  <div class="h-4"></div>
+</ng-template>

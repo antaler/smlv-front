@@ -1,0 +1,35 @@
+on:
+  push: 
+      branches: ["main"]
+      paths: ./web/*
+
+jobs:
+  docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker Registry Login
+        uses: docker/login-action@v3.2.0
+        with:
+          registry: docker.antaler.com
+          username: ${{ secrets.DOCKER_ROBOT_USERNAME }}
+          password: ${{ secrets.DOCKER_ROBOT_PASSWORD }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/amd64,linux/arm64
+          push: true
+          context: ./web
+          labels: front
+          tags: |
+            docker.antaler.com/smlv/smlv-web:latest
+            docker.antaler.com/smlv/smlv-web:$(date +%s)  
+      

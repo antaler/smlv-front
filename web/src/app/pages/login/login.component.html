@@ -1,0 +1,10 @@
+<main class="w-screen h-screen flex flex-col items-center justify-center  bg-accentDark/50 p-2">
+  <div class="rounded-md border-primaryDark border-2 flex flex-col p-10">
+    <h1 class=" text-4xl font-extrabold w-full text-center text-primaryDark mb-4">Smartlive</h1>
+    <app-input type="email" name="email" label="Email" [(value)]="credentials.email" />
+    <app-input type="password" name="password" label="Password" [(value)]="credentials.password" />
+    <app-button type="button" class="py-2 px-4 mx-auto" [(isClicked)]="isLoading" (clicked)="login()" [loader]="true"
+      text="Sign In" />
+
+  </div>
+</main>
