@@ -2,7 +2,8 @@ name: Build SMLV Web Docker Image
 on:
   push: 
       branches: ["main"]
-      paths: web/ 
+      paths:
+        - web/**
 
 jobs:
   docker-image:
