@@ -1,3 +1,4 @@
+name: Build SMLV Web Docker Image 
 on:
   push: 
       branches: ["main"]
