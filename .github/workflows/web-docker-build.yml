@@ -18,7 +18,7 @@ jobs:
       
       - name: CERTS
         run: |
-          echo "${{secrets.REGISTRY_CRT}}" >  /usr/local/share/ca-certificates/ 
+          echo "${{secrets.REGISTRY_CRT}}" >  /usr/local/share/ca-certificates/${{ secrets.DOCKER_REGISTRY_DOMAIN }}
           update-ca-certificates
           systemctl restart docker
       
