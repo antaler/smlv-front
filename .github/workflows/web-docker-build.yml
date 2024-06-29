@@ -19,7 +19,7 @@ jobs:
       
 
       - name: Add certificate
-        run: echo "${{ secrets.REGISTRY_CRT }}" > /etc/docker/certs.d/docker.antaler.com/ca.crt
+        run: mkdir -p /etc/docker/certs.d/docker.antaler.com &&  echo "${{ secrets.REGISTRY_CRT }}" > /etc/docker/certs.d/docker.antaler.com/ca.crt
 
    
       - name: Setup Docker Buildx
