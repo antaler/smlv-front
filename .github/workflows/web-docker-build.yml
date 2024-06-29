@@ -18,7 +18,8 @@ jobs:
       
       - name: Set UP docker
         run: |
-          echo {"insecure-registies": ["${{ secrets.DOCKER_REGISTRY_DOMAIN }}"]} > .docker
+          echo -e "{\"insecure-registies\": [\"${{ secrets.DOCKER_REGISTRY_DOMAIN }}\"]}\"" > .docker
+          cat .docker
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
