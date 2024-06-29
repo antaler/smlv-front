@@ -16,6 +16,12 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       
+      - name: CERTS
+        run: |
+          echo "${{secrets.REGISTRY_CRT}}" >  /usr/local/share/ca-certificates/ 
+          update-ca-certificates
+          systemctl restart docker
+      
       - name: Setup Docker Buildx
         id: setup_docker_buildx
         uses: docker/setup-buildx-action@v3
