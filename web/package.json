@@ -9,6 +9,11 @@
     "test": "ng test --no-watch"
   },
   "private": true,
+  "author": {
+    "email": "dev@antaler.com",
+    "name": "antaler",
+    "url": "https://antaler.com"
+  },
   "dependencies": {
     "@angular/animations": "^18.0.2",
     "@angular/common": "^18.0.0",
