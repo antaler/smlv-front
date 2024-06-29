@@ -16,15 +16,13 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       
-      - name: CERTS
+      - name: Set UP docker
         run: |
-          sudo echo "${{secrets.REGISTRY_CRT}}" >  /usr/local/share/ca-certificates/${{ secrets.DOCKER_REGISTRY_DOMAIN }}
-          sudo update-ca-certificates
-          sudo systemctl restart docker
+          echo {"insecure-registies": ["${{ secrets.DOCKER_REGISTRY_DOMAIN }}"]} > .docker
       
-      - name: Setup Docker Buildx
-        id: setup_docker_buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
 
       - name: Docker Registry Login
         uses: docker/login-action@v3.2.0
